@@ -4,7 +4,7 @@
   "main": "index.js",
   "repository": "https://github.com/chris-fo/ott-web-app.git",
   "author": "Robin van Zanten",
-  "private": true,
+  "private": false,
   "engines": {
     "node": ">=16.0.0"
   },
