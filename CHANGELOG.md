@@ -1,3 +1,12 @@
+# [2.5.1](https://github.com/jwplayer/ott-web-app/compare/v2.4.2...v2.5.1) (2022-09-21)
+
+
+### Features
+
+* **project:** fancy shmancy changes
+
+
+
 # [2.5.0](https://github.com/jwplayer/ott-web-app/compare/v2.4.2...v2.5.0) (2022-08-05)
 
 
