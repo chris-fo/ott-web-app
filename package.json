@@ -1,12 +1,15 @@
 {
-  "name": "jw-ott-webapp",
+  "name": "@chris-fo/jw-ott-webapp",
   "version": "2.5.0",
   "main": "index.js",
   "repository": "https://github.com/chris-fo/ott-web-app.git",
   "author": "Robin van Zanten",
-  "private": true,
+  "private": false,
   "engines": {
     "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "prepare": "husky install",
