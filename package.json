@@ -1,5 +1,5 @@
 {
-  "name": "jw-ott-webapp",
+  "name": "@chris-fo/jw-ott-webapp",
   "version": "2.5.0",
   "main": "index.js",
   "repository": "https://github.com/chris-fo/ott-web-app.git",
@@ -7,6 +7,9 @@
   "private": false,
   "engines": {
     "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "scripts": {
     "prepare": "husky install",
