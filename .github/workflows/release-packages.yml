@@ -1,9 +1,6 @@
 name: Release Package
 
-on:
-  pull_request:
-    branches: [ $default-branch ]
-    types: [closed]
+on: [pull_request]
 
 jobs:
   # only publish artifact when PR was merged, not if it was closed without merging
