@@ -5,7 +5,7 @@ on: [pull_request]
 jobs:
   # only publish artifact when PR was merged, not if it was closed without merging
   publish-artifact:
-    if: github.event.pull_request.merged == true
+#    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     strategy:
       matrix:
