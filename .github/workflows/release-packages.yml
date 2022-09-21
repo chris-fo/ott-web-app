@@ -1,7 +1,7 @@
 name: Release Package
 
 on:
-  push:
+  pull-request:
     branches: [ $default-branch ]
     types: [closed]
 
@@ -9,7 +9,7 @@ jobs:
   # only publish artifact when PR was merged, not if it was closed without merging
   publish-artifact:
     if: github.event.pull_request.merged == true
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         node-version: [ 16.x ]
