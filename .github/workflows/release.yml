@@ -26,10 +26,28 @@ jobs:
 
       - name: Create Release
         uses: actions/create-release@v1
+        id: create_release
         if: steps.changelog.outputs.skipped != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
         with:
-          tag_name: 'is-this-a-tag'
+          tag_name: ${{ github.ref }}
           release_name: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
+          
+      - name: upload build artifact
+      
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./build
+          asset_name: build
+          asset_content_type: application/zip
+
+          
+          
+          
+          
+          
