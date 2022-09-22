@@ -12,17 +12,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
-      - run: yarn
-      - run: yarn build
+        uses: actions/checkout@v2
+      - name: Install deps
+        run: yarn
+      - name: Build App
+        run: yarn build
       - name: Generate changelog
         id: changelog
         uses: ./
         with:
           github-token: ${{ secrets.github_token }}
           create-summary: true
-      - name: Release
-        uses: softprops/action-gh-release@v1
+
+      - name: Create Release
+        uses: actions/create-release@v1
         if: steps.changelog.outputs.skipped != 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.github_token }}
