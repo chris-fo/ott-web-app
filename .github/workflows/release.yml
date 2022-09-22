@@ -37,14 +37,10 @@ jobs:
           
       - name: upload build artifact
       
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        uses: actions/upload-artifact@v3
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build
-          asset_name: build
-          asset_content_type: application/zip
+          name: build
+          path: ./build # or path/to/artifact
 
           
           
