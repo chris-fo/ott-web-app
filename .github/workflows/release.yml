@@ -1,0 +1,20 @@
+# This is a basic workflow that is manually triggered
+
+name: Manual Release
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Build
+      - run: yarn
+      - run: yarn build
+      - name: Release
+        uses: softprops/action-gh-release@v1
