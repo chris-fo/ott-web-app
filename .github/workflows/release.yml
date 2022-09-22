@@ -19,7 +19,7 @@ jobs:
         run: yarn build
       - name: Generate changelog
         id: changelog
-        uses: ./
+        uses: actions/checkout@v2
         with:
           github-token: ${{ secrets.github_token }}
           create-summary: true
