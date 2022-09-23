@@ -32,10 +32,8 @@ jobs:
       - name: Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: |
-            "build.tar.gz"
-            "build.zip"
-          tag: 'test2'
+          artifacts: "build.tar.gz, build.zip"
+          tag: 'test3'
           token: ${{ secrets.github_token }}
 
 #       - name: Create Release
