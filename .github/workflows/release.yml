@@ -22,7 +22,7 @@ jobs:
         uses: TriPSs/conventional-changelog-action@v3
         with:
           github-token: ${{ secrets.github_token }}
-          create-summary: true
+          output-file: "false"
 
       - name: Install deps
         run: yarn
