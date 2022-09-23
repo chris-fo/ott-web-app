@@ -28,6 +28,7 @@ jobs:
       - name: Release
         uses: ncipollo/release-action@v1
         with:
+          allowUpdates: true
           artifacts: "build.tar.gz, build.zip"
           tag: ${{ steps.changelog.outputs.tag }}
           body: ${{ steps.changelog.outputs.clean_changelog }}
