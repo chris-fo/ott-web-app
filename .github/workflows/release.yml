@@ -4,8 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
-    if: ${{ steps.changelog.outputs.tag }}
+  generate-changelog:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -17,7 +16,6 @@ jobs:
         with:
           github-token: ${{ secrets.github_token }}
           output-file: "false"
-
       - name: Install deps
         run: yarn
       - name: Build App
@@ -28,6 +26,7 @@ jobs:
           
       - name: Release
         uses: ncipollo/release-action@v1
+        if: ${{ steps.changelog.outputs.tag }}
         with:
           allowUpdates: true
           artifacts: "build.tar.gz, build.zip"
