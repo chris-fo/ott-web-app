@@ -13,11 +13,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-        
-      - run: rm -rf node_modules && yarn install --frozen-lockfile
-        env:
-            NODE_OPTIONS: "--max_old_space_size=4096"
-      - run: git add node_modules -f
      
       - name: Generate changelog
         id: changelog
