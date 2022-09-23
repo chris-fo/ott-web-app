@@ -5,6 +5,7 @@ on:
 
 jobs:
   build:
+    if: ${{ steps.changelog.outputs.tag }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
