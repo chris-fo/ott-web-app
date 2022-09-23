@@ -13,16 +13,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-      - name: Install deps
-        run: yarn
-      - name: Build App
-        run: yarn build
+        
+      - run: npm ci --prod
+      - run: git add node_modules -f
+     
       - name: Generate changelog
         id: changelog
         uses: TriPSs/conventional-changelog-action@v3
         with:
           github-token: ${{ secrets.github_token }}
           create-summary: true
+
+      - name: Install deps
+        run: yarn
+      - name: Build App
+        run: yarn build
 
       - name: Create Release
         uses: actions/create-release@v1
