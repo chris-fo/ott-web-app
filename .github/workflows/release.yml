@@ -33,7 +33,7 @@ jobs:
         with:
           artifacts: "build.tar.gz"
           tag: ${{ steps.changelog.outputs.tag }}
-          token: ${{ secrets.YOUR_GITHUB_TOKEN }}
+          token: ${{ secrets.github_token }}
 
 #       - name: Create Release
 #         uses: actions/create-release@v1
