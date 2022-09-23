@@ -14,7 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         
-      - run: npm ci --prod
+      - run: rm -rf node_modules && yarn install --frozen-lockfile
       - run: git add node_modules -f
      
       - name: Generate changelog
