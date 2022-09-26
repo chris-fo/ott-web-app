@@ -1,6 +1,6 @@
 {
   "name": "@chris-fo/jw-ott-webapp",
-  "version": "2.9.15",
+  "version": "2.9.16",
   "main": "index.js",
   "repository": "https://github.com/chris-fo/ott-web-app.git",
   "author": "Robin van Zanten",
