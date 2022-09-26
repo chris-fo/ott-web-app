@@ -33,7 +33,7 @@ jobs:
         if: ${{ steps.changelog.outputs.tag }}
         with:
           allowUpdates: true
-          artifacts: "build.tar.gz, build.zip"
+          artifacts: "build-${VERSION}.tar.gz, build-${VERSION}.zip"
           tag: ${{ steps.changelog.outputs.tag }}
           bodyFile: ".github/RELEASE_BODY_TEMPLATE.md"
           token: ${{ secrets.github_token }}
