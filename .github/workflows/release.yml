@@ -27,6 +27,7 @@ jobs:
           yarn build
           tar czf build-${RELEASE_VERSION}.tar.gz ./build
           zip -r build-${RELEASE_VERSION}.zip ./build
+          echo ${{ steps.changelog.outputs.clean_changelog }} >> RELEASE_BODY_TEMPLATE.md
           
       - name: Release
         uses: ncipollo/release-action@v1
