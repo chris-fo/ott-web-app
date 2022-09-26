@@ -23,12 +23,11 @@ jobs:
       - name: Build App
         env:
           RELEASE_VERSION: ${{ steps.changelog.outputs.tag }}
-          RELEASE_NOTES: ${{ steps.changelog.outputs.clean_changelog }}
         run: |
           yarn build
           tar czf build-${RELEASE_VERSION}.tar.gz ./build
           zip -r build-${RELEASE_VERSION}.zip ./build
-          echo $RELEASE_NOTES >> RELEASE_BODY_TEMPLATE.md
+          echo ${{ steps.changelog.outputs.clean_changelog }} >> .github/RELEASE_BODY_TEMPLATE.md
           echo "Appended release notes"
           
       - name: Release
@@ -38,5 +37,5 @@ jobs:
           allowUpdates: true
           artifacts: "build-*.tar.gz, build-*.zip"
           tag: ${{ steps.changelog.outputs.tag }}
-          bodyFile: "../RELEASE_BODY_TEMPLATE.md"
+          bodyFile: ".github/RELEASE_BODY_TEMPLATE.md"
           token: ${{ secrets.github_token }}
