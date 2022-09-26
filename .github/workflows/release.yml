@@ -23,11 +23,13 @@ jobs:
       - name: Build App
         env:
           RELEASE_VERSION: ${{ steps.changelog.outputs.tag }}
+          RELEASE_NOTES: ${{ steps.changelog.outputs.clean_changelog }}
         run: |
           yarn build
           tar czf build-${RELEASE_VERSION}.tar.gz ./build
           zip -r build-${RELEASE_VERSION}.zip ./build
-          echo ${{ steps.changelog.outputs.clean_changelog }} >> RELEASE_BODY_TEMPLATE.md
+          echo $RELEASE_NOTES >> RELEASE_BODY_TEMPLATE.md
+          echo "Appended release notes"
           
       - name: Release
         uses: ncipollo/release-action@v1
