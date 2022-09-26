@@ -29,7 +29,9 @@ jobs:
           zip -r build-${RELEASE_VERSION}.zip ./build
       - name: Append Release Notes
         run: |
-          echo ${{ steps.changelog.outputs.clean_changelog }} >> .github/RELEASE_BODY_TEMPLATE.md
+          cat <<EOT >> .github/RELEASE_BODY_TEMPLATE.md
+          ${{ steps.changelog.outputs.clean_changelog }}
+          EOT
           echo "Appended release notes"
           
       - name: Release
