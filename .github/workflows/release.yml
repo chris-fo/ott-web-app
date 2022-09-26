@@ -36,6 +36,5 @@ jobs:
           artifacts: "build-*.tar.gz, build-*.zip"
           tag: ${{ steps.changelog.outputs.tag }}
           bodyFile: ".github/RELEASE_BODY_TEMPLATE.md"
+          body: ${{ steps.changelog.outputs.clean_changelog }}
           token: ${{ secrets.github_token }}
-          generateReleaseNotes: true
-          
