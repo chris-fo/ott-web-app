@@ -20,11 +20,13 @@ jobs:
           output-file: "false"
       - name: Install deps
         run: yarn
+        env: 
+          VERSION: ${{ steps.changelog.outputs.tag }}
       - name: Build App
         run: |
           yarn build
-          tar czf build.tar.gz ./build
-          zip -r build.zip ./build
+          tar czf build-${VERSION}.tar.gz ./build
+          zip -r build-${VERSION}.zip ./build
           
       - name: Release
         uses: ncipollo/release-action@v1
