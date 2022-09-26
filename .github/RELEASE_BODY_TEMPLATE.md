@@ -9,6 +9,6 @@ In case you want to take our codebase as a starting point and customize the JWP 
 download the `Source code` in your preferred compression format (`zip`, `tar.gz`). 
 We are looking forward to see what you create!
 
-## Changelog
+# Changes
 
-Check the [`CHANGELOG`](../CHANGELOG.md) for more information about notable changes.
+Check the [`CHANGELOG`](../CHANGELOG.md). for more details.
