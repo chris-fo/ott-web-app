@@ -24,6 +24,8 @@ jobs:
           VERSION: ${{ steps.changelog.outputs.tag }}
       - name: Build App
         run: |
+          export _VERSION=$VERSION
+          echo $_VERSION
           yarn build
           tar czf build-${VERSION}.tar.gz ./build
           zip -r build-${VERSION}.zip ./build
