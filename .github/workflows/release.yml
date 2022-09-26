@@ -20,12 +20,10 @@ jobs:
           output-file: "false"
       - name: Install deps
         run: yarn
-        env: 
-          VERSION: ${{ steps.changelog.outputs.tag }}
       - name: Build App
+        env:
+          RELEASE_VERSION: ${{ steps.changelog.outputs.tag }}
         run: |
-          export _VERSION=$VERSION
-          echo $_VERSION
           yarn build
           tar czf build-${VERSION}.tar.gz ./build
           zip -r build-${VERSION}.zip ./build
